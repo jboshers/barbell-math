@@ -60,7 +60,7 @@ const initialState = {
 const Index = ():any => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const platesToBeUsed = Object.keys(state.platesSelected).filter(
+  const platesToBeUsed:any = Object.keys(state.platesSelected).filter(
     (p) => { if (state.platesSelected[p]) { return parseFloat(p); } return null; },
   ).sort((a:any, b:any) => b - a);
 
