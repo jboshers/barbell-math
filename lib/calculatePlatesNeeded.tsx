@@ -1,11 +1,14 @@
-const calculate = (halfWeight:number, plates:[]) => {
+const calculate = (halfWeight:number, plates:string[]) => {
   let platesNeeded:any = [];
   let remainingWeight = 0;
-  [...plates].reduce((acc:any, plate:any) => {
+  [...plates].reduce((acc:number, plate:string) => {
     const sanPlate = parseFloat(plate);
     const math = acc / sanPlate;
     if (Math.floor(math) >= 1) {
-      platesNeeded = [...platesNeeded, Array.from(Array(Math.floor(math)).keys(), () => plate)];
+      platesNeeded = [
+        ...platesNeeded,
+        Array.from(Array(Math.floor(math)).keys(), ():string => plate),
+      ];
     }
     remainingWeight = acc - (Math.floor(math) * sanPlate);
     return remainingWeight;
@@ -13,7 +16,7 @@ const calculate = (halfWeight:number, plates:[]) => {
   return { platesNeeded: platesNeeded.flat(), remainder: remainingWeight };
 };
 
-const calculatePlatesNeeded = (weight:number, plates:[], bar:number):any => {
+const calculatePlatesNeeded = (weight:number, plates:string[], bar:number):string[]|null => {
   const smallestPlate = parseFloat(plates[plates.length - 1]);
   const splitWeight = (weight - bar) / 2;
 

@@ -1,10 +1,14 @@
 import styles from './index.module.css';
 
-export interface Props {
-  plates: []
+interface Props {
+  plates: string[]|null
 }
 
-const weightToWord = {
+type basicObj = {
+  [index: string]: string;
+}
+
+const weightToWord:basicObj = {
   100: 'hundred',
   65: 'sixtyFive',
   55: 'fiftyFive',
@@ -26,7 +30,7 @@ const Index = ({ plates }:Props):JSX.Element => (
   <>
     { plates && (
       <div className={styles.base}>
-        {plates.map((w, i) => (
+        {plates.map((w:string, i:number) => (
           <div
             key={`${w}-${i * 32}`}
             className={`${styles.plate} ${styles[weightToWord[w]]}`}

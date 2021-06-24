@@ -1,10 +1,24 @@
-/* eslint-disable default-case */
 import { useReducer } from 'react';
 import PlateDisplay from '../../components/PlateDisplay';
 import calculatePlatesNeeded from '../../lib/calculatePlatesNeeded';
 
+type State = {
+  plates: number[],
+  platesSelected: {
+    [index: string]: boolean
+  },
+  bars: number[],
+  barSelected: number,
+  weight: number
+}
+
+type Action =
+  | {type: 'CONFIGUREPLATES', label:string, value: boolean}
+  | {type: 'CONFIGUREBAR', value: number}
+  | {type: 'CONFIGUREWEIGHT', value: number}
+
 // eslint-disable-next-line consistent-return
-const reducer = (state:any, action:any) => {
+const reducer = (state:State, action:Action) => {
   switch (action.type) {
   case 'CONFIGUREPLATES':
     return {
@@ -21,6 +35,8 @@ const reducer = (state:any, action:any) => {
       ...state,
       weight: action.value,
     };
+  default:
+    throw new Error('Dis Bad');
   }
 };
 
@@ -116,7 +132,7 @@ const Index = ():any => {
                 onChange={handleBarToggle}
                 name="bar"
                 value={bar}
-                checked={parseInt(state.barSelected, 10) === parseInt(bar, 10)}
+                checked={state.barSelected === parseInt(bar, 10)}
               />
               {bar}
             </label>
