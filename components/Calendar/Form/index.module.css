@@ -1,0 +1,14 @@
+.heading {
+  margin-bottom: 0.25rem;
+}
+
+.helpText {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: var(--nord8);
+}
+
+.form {
+  margin-top: 2rem;
+}

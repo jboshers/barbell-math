@@ -1,0 +1,56 @@
+.heading {
+  margin-bottom: 0.25rem;
+}
+
+.helpText {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: var(--nord8);
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
+.name {
+  display: block;
+  font-size: 2.2rem;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+  font-family: var(--b-font-heading);
+  margin-bottom: 1rem;
+}
+
+.typeOfDay {
+  pointer-events: none;
+}
+
+.day input {
+  display: none;
+}
+
+.button {
+  width: 100%;
+  padding: 0.25rem 0.5rem 0.5rem;
+  margin: 0;
+  transition: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+input:checked + .button {
+  opacity: 1;
+  background-color: var(--nord14);
+  color: var(--nord3);
+
+  &:hover {
+    opacity: 1;
+  }
+}

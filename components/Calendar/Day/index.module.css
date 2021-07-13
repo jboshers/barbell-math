@@ -1,0 +1,31 @@
+.base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  border: 1px solid #000;
+  /* border-radius: 1rem; */
+}
+
+.month {
+  position: absolute;
+  font-size: 3rem;
+  line-height: 0.875;
+  opacity: 0.1;
+  top: 0;
+  left: 0.25rem;
+}
+
+.day {
+  position: absolute;
+  line-height: 1;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+.button {
+  font-size: 0.875rem;
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}

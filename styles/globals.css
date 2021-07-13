@@ -1,13 +1,62 @@
+
+:root {
+  /* Nord Color Scheme */
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+  --nord7: #8fbcbb;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+  --nord11: #bf616a;
+  --nord12: #d08770;
+  --nord13: #ebcb8b;
+  --nord14: #a3be8c;
+  --nord15: #b48ead;
+
+  /* Fonts */
+	--b-font-main: 'Montserrat', sans-serif;
+	--b-font-mono: Consolas, Monaco, monospace;
+  --b-font-heading: 'Playfair Display', sans-serif;
+
+  /*Settings for Bamboo  */
+	--b-txt: var(--nord6);
+	--b-bg-1: var(--nord0);
+	--b-bg-2: var(--nord1);
+	--b-line: var(--nord1);
+	--b-link: var(--nord11);
+	--b-btn-bg: var(--nord13);
+	--b-btn-txt: var(--nord1);
+	--b-focus: var(--nord8);
+}
+
+@custom-media --viewport-small (width >= 34.375rem);
+@custom-media --viewport-medium (width >= 48rem);
+@custom-media --viewport-large (width >= 64rem);
+
 html,
 body {
   padding: 0;
-  margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0;
+  width: 100%;
+  max-width: initial;
 }
 
-* {
-  box-sizing: border-box;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--b-font-heading);
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 0.05rem;
 }
 
 .container {
@@ -17,7 +66,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin: 0 auto;
+  max-width: 70ch;
 }
 
 .main {
@@ -48,3 +98,60 @@ body {
   align-items: flex-start;
   justify-content: space-between;
 }
+
+.data-cell {
+  text-align: center;
+  background-color: rgba(0,0,0,0.2);
+  border-left: 2px solid rgba(0,0,0,0.1);
+  border-right: 2px solid rgba(0,0,0,0.1);
+}
+
+.data-cell + .data-cell{
+  border-top: 2px solid rgba(0,0,0,0.1);
+}
+
+.empty-state {
+  margin: 3rem 0;
+  color: var(--nord13);
+  text-align: center;
+}
+
+.empty-state__heading {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.grid__day {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(14%, 1fr));
+  margin-bottom: 1rem;
+}
+
+/* UTILS */
+.util-cap {
+  text-transform: capitalize;
+}
+
+.util-center { text-align: center; }
+
+
+/*  One Offs */
+
+input, select {
+  font-family: var(--b-font-mono);
+  font-weight: 400;
+}
+
+input[type="date"] {
+  font-size: 0.9rem;
+}
+
+input::-webkit-calendar-picker-indicator{
+	height: 0.9rem;
+  padding: 0;
+}
+
+input:disabled {
+  background-color: var(--nord7);
+}
+

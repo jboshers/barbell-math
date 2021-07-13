@@ -1,18 +1,32 @@
+import Head from 'next/head';
 import Header from '../Header';
 import Footer from '../Footer';
 
-export interface Props {
-  children: React.ReactNode
+interface Props {
+  title?: string,
+  children: React.ReactNode,
+  menu?: React.ReactNode
 }
 
-const Layout = ({ children }:Props):any => (
-  <div className="container">
-    <Header title="Barbell Math" />
-    <main className="main">
-      <div>{children}</div>
-    </main>
-    <Footer />
-  </div>
+const Layout = ({ title = 'Home', children, menu }:Props):any => (
+  <>
+    <Head>
+      <title>
+        Barbell Math |
+        {' '}
+        {title}
+      </title>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+    <div className="container">
+      <Header title={title} menu={menu} />
+      <main className="main">
+        <div>{children}</div>
+      </main>
+      <Footer />
+    </div>
+  </>
 );
 
 export default Layout;

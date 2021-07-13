@@ -1,0 +1,77 @@
+.label {
+  display: block;
+  text-transform: capitalize;
+  margin-bottom: 0.25rem;
+  color: #363636;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 1rem;
+  min-width: 350px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal input,
+.modal label,
+.modal select {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #a9a9a9;
+  padding: 0.75rem;
+}
+
+.modalHeading {
+  color: #363636;
+  margin: 0;
+}
+
+.modalBody {
+  padding: 1rem 1.5rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #a9a9a9;
+  padding: 0.75rem;
+}
+
+.close {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.close:hover {
+  background: transparent;
+}
+
+.close svg {
+  vertical-align: middle;
+  fill: #a9a9a9;
+  width: 24px;
+  height: 24px;
+}

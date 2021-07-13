@@ -1,0 +1,25 @@
+.label {
+  display: block;
+  text-transform: capitalize;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-flow: row;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+@media (--viewport-medium) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  }
+}
+
+@media (--viewport-large) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}

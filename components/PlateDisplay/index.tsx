@@ -26,6 +26,7 @@ const errorMsg = {
   heading: 'Please select another weight.',
   description: 'Even weight distribution not possible.',
 };
+
 const Index = ({ plates }:Props):JSX.Element => (
   <>
     { plates && (

@@ -1,0 +1,11 @@
+.inputRow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(63px, 1fr));
+  gap: 1rem;
+}
+
+.label {
+  display: block;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}

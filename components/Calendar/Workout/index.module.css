@@ -1,0 +1,26 @@
+/* .base{
+  color: yellow;
+} */
+
+.workoutHeading {
+  text-transform: capitalize;
+}
+
+.emptyState {
+  margin: 3rem 0;
+  color: var(--nord13);
+  text-align: center;
+}
+
+.emptyStateHeading {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.table {
+  margin-bottom: 2rem;
+}
+
+.button {
+  margin-bottom: 1rem;
+}

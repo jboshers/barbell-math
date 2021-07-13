@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import Layout from '../../components/Layout';
 import PlateDisplay from '../../components/PlateDisplay';
 import calculatePlatesNeeded from '../../lib/calculatePlatesNeeded';
 
@@ -100,7 +101,7 @@ const Index = ():any => {
   };
 
   return (
-    <>
+    <Layout title="Plate Calculator">
       <div className="flex--inline">
         <button type="button">lbs</button>
         <button type="button" onClick={handleKilos}>kilos</button>
@@ -148,7 +149,7 @@ const Index = ():any => {
       <PlateDisplay
         plates={calculatePlatesNeeded(state.weight, platesToBeUsed, state.barSelected)}
       />
-    </>
+    </Layout>
   );
 };
 

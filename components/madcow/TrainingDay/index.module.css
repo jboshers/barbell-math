@@ -1,0 +1,32 @@
+/* --caput-mortuum: #562c2cff;
+--orange-soda: #f2542dff;
+--wheat: #f5dfbbff;
+--viridian-green: #0e9594ff;
+--skobeloff: #127475ff; */
+
+.day {
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-template-areas: "day movements";
+  gap: 0.5rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: day;
+  background-color: #562c2cff;
+  border-radius: 1rem;
+  text-transform: capitalize;
+}
+
+.movement {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 0.5rem;
+  border-radius: 1rem;
+}
