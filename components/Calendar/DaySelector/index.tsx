@@ -2,13 +2,11 @@ import { useContext } from 'react';
 import styles from './index.module.css';
 import { MadCowContext } from '../../../contexts/madcow/Provider';
 import { addToDaysSelected } from '../../../contexts/madcow/Reducer';
-import generateMadCowSchedule from '../../../lib/madcow/generateMadCowSchedule';
 
 const Index = ():JSX.Element => {
   const { state, dispatch }:any = useContext(MadCowContext);
   const days = Object.keys(state.days);
   const daysSelected = days.filter((day) => state.days[day]);
-  const daysSelectedByIndex = days.map((day, i) => (state.days[day] ? i : '')).filter(String);
 
   const handleDaySelection = ({ target }:any) => {
     // Only selects three days and allows for unselected already selected days.
