@@ -81,7 +81,7 @@ export const madcowReducer = (state:State, action: Action):State => {
       ...state,
       workouts: action.payload.map((workout) => ({
         ...workout,
-        completed: state?.workouts[workout.id]?.completed,
+        completed: state?.workouts[workout.id]?.completed || false,
       })),
     };
 

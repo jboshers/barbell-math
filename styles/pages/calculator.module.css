@@ -1,0 +1,32 @@
+.base {
+  padding: 0 1.5rem;
+}
+
+.heading {
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 75px;
+  & input {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  & span {
+    display: inline-block;
+    font-size: 1rem;
+    font-family: var(--b-font-mono);
+  }
+}

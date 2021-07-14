@@ -42,10 +42,10 @@ const Index = ({ plates }:Props):JSX.Element => (
       </div>
     )}
     {!plates && (
-      <>
+      <div className={styles.error}>
         <h3>{errorMsg.heading}</h3>
         <p>{errorMsg.description}</p>
-      </>
+      </div>
     )}
   </>
 );

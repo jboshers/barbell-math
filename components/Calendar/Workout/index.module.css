@@ -6,7 +6,8 @@
   margin-bottom: 2rem;
 }
 
-.heading {
+.heading,
+.completed {
   font-family: var(	--b-font-mono);
   font-size: 1.1rem;
 }
@@ -26,7 +27,7 @@
   margin-bottom: 1rem;
   font-size: 3rem;
 }
-.heading,
+.header,
 .movementTable {
   padding: 0 1.5rem;
   @media (--viewport-medium) {
@@ -52,4 +53,17 @@
 
 .button {
   display: block;
+}
+
+.completed {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  color: var(--nord8);
+  & .check {
+    color: var(--nord14);
+    font-size: 2rem;
+  }
 }

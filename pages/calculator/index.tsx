@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import Layout from '../../components/Layout';
 import PlateDisplay from '../../components/PlateDisplay';
 import calculatePlatesNeeded from '../../lib/calculatePlatesNeeded';
+import styles from '../../styles/pages/calculator.module.css';
 
 type State = {
   plates: number[],
@@ -102,53 +103,55 @@ const Index = ():any => {
 
   return (
     <Layout title="Plate Calculator">
-      <div className="flex--inline">
-        <button type="button">lbs</button>
-        <button type="button" onClick={handleKilos}>kilos</button>
+      <div className={styles.base}>
+        <div className="flex--inline">
+          <button type="button">LB</button>
+          <button type="button" onClick={handleKilos}>KG</button>
+        </div>
+        <h3 className={styles.heading}>Available Plates</h3>
+        <div className={styles.grid}>
+          {state.plates.map((plate: any) => (
+            <>
+              <label className={styles.control} htmlFor={plate}>
+                <input
+                  type="checkbox"
+                  onChange={handlePlateToggle}
+                  name={plate}
+                  checked={state.platesSelected[plate]}
+                />
+                <span>{plate}</span>
+              </label>
+            </>
+          ))}
+        </div>
+        <hr />
+        <h3 className={styles.heading}>Bar Weight</h3>
+        <div className={styles.grid}>
+          {state.bars.map((bar: any) => (
+            <>
+              <label className={styles.control} htmlFor={bar}>
+                <input
+                  type="radio"
+                  onChange={handleBarToggle}
+                  name="bar"
+                  value={bar}
+                  checked={state.barSelected === parseInt(bar, 10)}
+                />
+                <span>{bar}</span>
+              </label>
+            </>
+          ))}
+        </div>
+        <hr />
+        <label htmlFor="weight">
+          <input pattern="[0-9]*" name="weight" type="number" min="0" placeholder="Weight" value={state.weight} onChange={handleTextChange} />
+        </label>
+        <hr />
+        <h3 className={styles.heading}>Plates</h3>
+        <PlateDisplay
+          plates={calculatePlatesNeeded(state.weight, platesToBeUsed, state.barSelected)}
+        />
       </div>
-      <h5>Available Plates</h5>
-      <div className="grid--simple">
-        {state.plates.map((plate: any) => (
-          <span key={plate}>
-            <label htmlFor={plate}>
-              <input
-                type="checkbox"
-                onChange={handlePlateToggle}
-                name={plate}
-                checked={state.platesSelected[plate]}
-              />
-              {plate}
-            </label>
-          </span>
-        ))}
-      </div>
-      <hr />
-      <h5>Bar Weight</h5>
-      <div className="grid--simple">
-        {state.bars.map((bar: any) => (
-          <div key={bar}>
-            <label htmlFor={bar}>
-              <input
-                type="radio"
-                onChange={handleBarToggle}
-                name="bar"
-                value={bar}
-                checked={state.barSelected === parseInt(bar, 10)}
-              />
-              {bar}
-            </label>
-          </div>
-        ))}
-      </div>
-      <hr />
-      <label htmlFor="weight">
-        <input name="weight" type="number" min="0" placeholder="Weight" value={state.weight} onChange={handleTextChange} />
-      </label>
-      <hr />
-      <h5>Plates</h5>
-      <PlateDisplay
-        plates={calculatePlatesNeeded(state.weight, platesToBeUsed, state.barSelected)}
-      />
     </Layout>
   );
 };

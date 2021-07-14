@@ -6,11 +6,10 @@
   justify-content: space-between;
   width: 100%;
   padding: 2rem 1.5rem;
+  text-align: center;
+
   & h1 {
-    font-size: 6vw;
-    @media (--viewport-medium) {
-      font-size: 3vw;
-    }
+    font-size: 2rem;
   }
 
   @media (--viewport-medium) {
