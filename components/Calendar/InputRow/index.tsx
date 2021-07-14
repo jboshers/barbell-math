@@ -53,6 +53,7 @@ const Row = ({ movement }:Props):JSX.Element => {
             min="1"
             name="weight"
             defaultValue={weight}
+            pattern="[0-9]*"
             // eslint-disable-next-line no-return-assign
             onChange={(e) => {
               weight = parseInt(e.target.value, 10);
@@ -68,6 +69,7 @@ const Row = ({ movement }:Props):JSX.Element => {
             min="1"
             max="10"
             name="reps"
+            pattern="[0-9]*"
             defaultValue={reps}
             // eslint-disable-next-line no-return-assign
             onChange={(e) => {
