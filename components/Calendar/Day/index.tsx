@@ -5,19 +5,21 @@ import styles from './index.module.css';
 
 interface Day {
   date: Date,
+  restDay: boolean,
   workoutId?: number
 }
 
 const Index = ({
   date,
+  restDay,
   workoutId,
 }:Day):JSX.Element => {
   const { dispatch }:any = useContext(MadCowContext);
   const month = date.getUTCMonth() + 1;
   const day = date.getUTCDate();
-  const isWorkDay = workoutId !== null;
+  const isWorkDay = !restDay;
   return (
-    <div className={styles.base}>
+    <div className={`${styles.base} ${restDay ? styles.restDay : ''}`}>
       <div className={styles.month}>{month}</div>
       <div className={styles.day}>{day}</div>
       {isWorkDay && (

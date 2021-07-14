@@ -1,4 +1,4 @@
-export const WORKOUTMOVEMENTS = [
+export const WORKOUT_MOVEMENTS = [
   ['squat', 'bench', 'row'],
   ['squat', 'press', 'deadlift'],
   ['squat', 'bench', 'row'],

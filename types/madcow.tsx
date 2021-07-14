@@ -13,7 +13,7 @@ export type Settings = {
   duration: number,
   plate: number,
   interval: number,
-  startDate: string | null
+  startDate: string | undefined
 }
 
 export interface Workout {
@@ -45,14 +45,14 @@ export type State = {
 }
 
 export type Action =
-  | {type: 'CONFIGDAYS', day: string, value: boolean}
-  | {type: 'UPDATEMOVEMENT', payload: Movement}
-  | {type: 'UPDATEDURATION', duration: number }
-  | {type: 'UPDATESTARTDATE', startDate: string }
-  | {type: 'UPDATESMALLPLATE', plate: number }
-  | {type: 'ADDSCHEDULEDDAYS', payload: ScheduleDay[]}
-  | {type: 'UPDATEINTERVAL', interval: number }
-  | {type: 'ADDWORKOUTS', payload: Workout[]}
+  | {type: 'CONFIG_DAYS', day: string, value: boolean}
+  | {type: 'UPDATE_MOVEMENT', payload: Movement}
+  | {type: 'UPDATE_DURATION', duration: number }
+  | {type: 'UPDATE_START_DATE', startDate: string }
+  | {type: 'UPDATE_SMALL_PLATE', plate: number }
+  | {type: 'ADD_SCHEDULED_DAYS', payload: ScheduleDay[]}
+  | {type: 'UPDATE_INTERVAL', interval: number }
+  | {type: 'ADD_WORKOUTS', payload: Workout[]}
   | {type: 'SHOW_CURRENT_WORKOUT', payload: number | null}
   | {type: 'COMPLETE_CURRENT_WORKOUT', payload: number}
 

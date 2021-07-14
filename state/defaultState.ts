@@ -64,7 +64,7 @@ const MadcowDefaultState = {
     duration: 12,
     plate: 2.5,
     interval: 12.5,
-    startDate: null,
+    startDate: undefined,
   },
   scheduledDays: [],
   workouts: [],

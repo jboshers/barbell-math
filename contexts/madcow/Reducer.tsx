@@ -13,13 +13,13 @@ export const initializer = (initialValue = MadcowDefaultState):State => {
 
 export const madcowReducer = (state:State, action: Action):State => {
   switch (action.type) {
-  case 'CONFIGDAYS':
+  case 'CONFIG_DAYS':
     return {
       ...state,
       days: { ...state.days, [action.day]: !state.days[action.day] },
     };
 
-  case 'UPDATEMOVEMENT':
+  case 'UPDATE_MOVEMENT':
     // eslint-disable-next-line no-param-reassign
     state.movements[action.payload.id] = {
       ...state.movements[action.payload.id],
@@ -34,7 +34,7 @@ export const madcowReducer = (state:State, action: Action):State => {
       ...state,
     };
 
-  case 'UPDATEDURATION':
+  case 'UPDATE_DURATION':
     return {
       ...state,
       settings: {
@@ -43,7 +43,7 @@ export const madcowReducer = (state:State, action: Action):State => {
       },
     };
 
-  case 'UPDATEINTERVAL':
+  case 'UPDATE_INTERVAL':
     return {
       ...state,
       settings: {
@@ -52,7 +52,7 @@ export const madcowReducer = (state:State, action: Action):State => {
       },
     };
 
-  case 'UPDATESTARTDATE':
+  case 'UPDATE_START_DATE':
     return {
       ...state,
       settings: {
@@ -61,7 +61,7 @@ export const madcowReducer = (state:State, action: Action):State => {
       },
     };
 
-  case 'UPDATESMALLPLATE':
+  case 'UPDATE_SMALL_PLATE':
     return {
       ...state,
       settings: {
@@ -70,16 +70,19 @@ export const madcowReducer = (state:State, action: Action):State => {
       },
     };
 
-  case 'ADDSCHEDULEDDAYS':
+  case 'ADD_SCHEDULED_DAYS':
     return {
       ...state,
       scheduledDays: action.payload,
     };
 
-  case 'ADDWORKOUTS':
+  case 'ADD_WORKOUTS':
     return {
       ...state,
-      workouts: action.payload,
+      workouts: action.payload.map((workout) => ({
+        ...workout,
+        completed: state?.workouts[workout.id]?.completed,
+      })),
     };
 
   case 'SHOW_CURRENT_WORKOUT':
@@ -109,42 +112,42 @@ export const madcowReducer = (state:State, action: Action):State => {
 };
 
 export const addToDaysSelected = (day: string):any => ({
-  type: 'CONFIGDAYS',
+  type: 'CONFIG_DAYS',
   day,
 });
 
-export const updateMovement = (payload: Movement):any => ({
-  type: 'UPDATEMOVEMENT',
+export const UPDATE_MOVEMENT = (payload: Movement):any => ({
+  type: 'UPDATE_MOVEMENT',
   payload,
 });
 
-export const updateDuration = (duration: number):any => ({
-  type: 'UPDATEDURATION',
+export const UPDATE_DURATION = (duration: number):any => ({
+  type: 'UPDATE_DURATION',
   duration,
 });
 
-export const updateStartDate = (startDate: string):any => ({
-  type: 'UPDATESTARTDATE',
+export const UPDATE_START_DATE = (startDate: string):any => ({
+  type: 'UPDATE_START_DATE',
   startDate,
 });
 
-export const updateSmallPlate = (plate: number):any => ({
-  type: 'UPDATESMALLPLATE',
+export const UPDATE_SMALL_PLATE = (plate: number):any => ({
+  type: 'UPDATE_SMALL_PLATE',
   plate,
 });
 
-export const updateInterval = (interval: number):any => ({
-  type: 'UPDATEINTERVAL',
+export const UPDATE_INTERVAL = (interval: number):any => ({
+  type: 'UPDATE_INTERVAL',
   interval,
 });
 
-export const addScheduledDays = (payload: ScheduleDay[]):any => ({
-  type: 'ADDSCHEDULEDDAYS',
+export const ADD_SCHEDULED_DAYS = (payload: ScheduleDay[]):any => ({
+  type: 'ADD_SCHEDULED_DAYS',
   payload,
 });
 
-export const addWorkouts = (payload: Workout[]):any => ({
-  type: 'ADDWORKOUTS',
+export const ADD_WORKOUTS = (payload: Workout[]):any => ({
+  type: 'ADD_WORKOUTS',
   payload,
 });
 

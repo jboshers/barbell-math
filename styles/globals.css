@@ -71,10 +71,11 @@ h6 {
 }
 
 .main {
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .footer {
@@ -110,21 +111,15 @@ h6 {
   border-top: 2px solid rgba(0,0,0,0.1);
 }
 
-.empty-state {
-  margin: 3rem 0;
-  color: var(--nord13);
-  text-align: center;
-}
-
-.empty-state__heading {
-  margin-bottom: 1rem;
-  font-size: 3rem;
-}
-
 .grid__day {
   display: grid;
-  grid-template-columns: repeat(7, minmax(14%, 1fr));
+  grid-template-columns: repeat(3, minmax(14%, 1fr));
   margin-bottom: 1rem;
+  padding: 0 1.5rem;
+  @media (--viewport-medium) {
+    grid-template-columns: repeat(7, minmax(14%, 1fr));
+    padding: 0;
+  }
 }
 
 /* UTILS */
@@ -154,4 +149,3 @@ input::-webkit-calendar-picker-indicator{
 input:disabled {
   background-color: var(--nord7);
 }
-

@@ -1,9 +1,19 @@
-/* .base{
-  color: yellow;
-} */
+.header {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-family: var(	--b-font-mono);
+  font-size: 1.1rem;
+}
 
 .workoutHeading {
   text-transform: capitalize;
+  margin-bottom: 0.5rem;
 }
 
 .emptyState {
@@ -16,11 +26,30 @@
   margin-bottom: 1rem;
   font-size: 3rem;
 }
+.heading,
+.movementTable {
+  padding: 0 1.5rem;
+  @media (--viewport-medium) {
+    padding: 0;
+  }
+}
 
 .table {
+  font-family: var(	--b-font-mono);
   margin-bottom: 2rem;
+  & th {
+    text-align: center;
+    color: var(--nord8);
+  }
+  & td {
+    text-align: center;
+  }
+  & th:last-child,
+  & td:last-child {
+    text-align: right;
+  }
 }
 
 .button {
-  margin-bottom: 1rem;
+  display: block;
 }

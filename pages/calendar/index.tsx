@@ -6,7 +6,7 @@ import Settings from '../../components/Calendar/Settings';
 const Index = ():any => (
   <MadCowProvider>
     <Layout
-      title="MadCow Program Calendar"
+      title="MadCow Calendar"
       menu={<Settings />}
     >
       <MadCowCalendar />

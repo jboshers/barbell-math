@@ -3,7 +3,7 @@ import styles from './index.module.css';
 import { Movement } from '../../../types/madcow';
 import generateMadcowProgression from '../../../lib/madcow/generateMadcowProgression';
 import { MadCowContext } from '../../../contexts/madcow/Provider';
-import { updateMovement } from '../../../contexts/madcow/Reducer';
+import { UPDATE_MOVEMENT } from '../../../contexts/madcow/Reducer';
 
 type Props = {
   movement: Movement,
@@ -39,7 +39,7 @@ const Row = ({ movement }:Props):JSX.Element => {
       work,
       progression,
     };
-    dispatch(updateMovement(payload));
+    dispatch(UPDATE_MOVEMENT(payload));
   };
 
   return (

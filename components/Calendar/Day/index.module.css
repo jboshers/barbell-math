@@ -3,16 +3,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
-  border: 1px solid #000;
-  /* border-radius: 1rem; */
+  min-height: 150px;
+  border: 1px solid var(--nord1);
+  @media (--viewport-medium) {
+    min-height: 100px;
+  }
+}
+.restDay {
+  display: none;
+  /* border: 1px solid var(--nord0); */
+  @media (--viewport-medium) {
+    display: block;
+  }
 }
 
 .month {
   position: absolute;
   font-size: 3rem;
   line-height: 0.875;
-  opacity: 0.1;
+  color: var(--nord1);
   top: 0;
   left: 0.25rem;
 }
@@ -22,6 +31,7 @@
   line-height: 1;
   top: 0.25rem;
   right: 0.25rem;
+  color: var(--nord8);
 }
 
 .button {

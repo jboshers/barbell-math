@@ -3,12 +3,12 @@ import Modal from '../../Modal';
 import styles from './index.module.css';
 import { MadCowContext } from '../../../contexts/madcow/Provider';
 import {
-  updateDuration,
-  updateSmallPlate,
-  updateStartDate,
-  updateInterval,
-  addScheduledDays,
-  addWorkouts,
+  UPDATE_DURATION,
+  UPDATE_SMALL_PLATE,
+  UPDATE_START_DATE,
+  UPDATE_INTERVAL,
+  ADD_SCHEDULED_DAYS,
+  ADD_WORKOUTS,
 } from '../../../contexts/madcow/Reducer';
 import Form from '../Form';
 import DaySelector from '../DaySelector';
@@ -25,7 +25,7 @@ const Index = ():JSX.Element => {
 
   useEffect(() => {
     const programDays = generateMadCowSchedule(startDate, duration, daysSelected);
-    dispatch(addScheduledDays(programDays));
+    dispatch(ADD_SCHEDULED_DAYS(programDays));
   }, [
     days,
     startDate,
@@ -38,7 +38,7 @@ const Index = ():JSX.Element => {
 
   useEffect(() => {
     const workouts = generateWorkout(state.scheduledDays, movements);
-    dispatch(addWorkouts(workouts));
+    dispatch(ADD_WORKOUTS(workouts));
   }, [
     state.scheduledDays,
     movements[0].progression,
@@ -59,9 +59,9 @@ const Index = ():JSX.Element => {
                 type="date"
                 name="startDate"
                 defaultValue={startDate}
-                data-tip="Any day of the first week."
+                data-tip="Date of your first workout"
                 onChange={(e) => {
-                  dispatch(updateStartDate(e.target.value));
+                  dispatch(UPDATE_START_DATE(e.target.value));
                 }}
               />
             </label>
@@ -78,7 +78,7 @@ const Index = ():JSX.Element => {
                 defaultValue={duration}
                 data-tip="Number of programmed weeks."
                 onChange={(e) => {
-                  dispatch(updateDuration(parseInt(e.target.value, 10)));
+                  dispatch(UPDATE_DURATION(parseInt(e.target.value, 10)));
                 }}
               />
             </label>
@@ -91,7 +91,7 @@ const Index = ():JSX.Element => {
                 defaultValue={plate}
                 // eslint-disable-next-line no-return-assign
                 onChange={(e) => {
-                  dispatch(updateSmallPlate(parseFloat(e.target.value)));
+                  dispatch(UPDATE_SMALL_PLATE(parseFloat(e.target.value)));
                 }}
               >
                 <option>10</option>
@@ -113,7 +113,7 @@ const Index = ():JSX.Element => {
                 defaultValue={interval}
                 data-tip="Percentage of difficulty week to week. Best not to change."
                 onChange={(e) => {
-                  dispatch(updateInterval(parseFloat(e.target.value)));
+                  dispatch(UPDATE_INTERVAL(parseFloat(e.target.value)));
                 }}
               />
             </label>

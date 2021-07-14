@@ -1,8 +1,19 @@
 .base {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
+  align-content: center;
   justify-content: space-between;
   width: 100%;
-  margin: 2rem 0;
+  padding: 2rem 1.5rem;
+  & h1 {
+    font-size: 6vw;
+    @media (--viewport-medium) {
+      font-size: 3vw;
+    }
+  }
+
+  @media (--viewport-medium) {
+    padding: 2rem 0;
+  }
 }

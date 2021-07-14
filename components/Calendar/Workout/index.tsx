@@ -18,12 +18,13 @@ const bar = 45;
 const plates = ['45', '35', '25', '15', '10', '5', '2.5'];
 
 const EmptyState = ():JSX.Element => (
-  <div className="empty-state">
-    <h2 className="empty-state__heading">No Workouts Found.</h2>
+  <div className={styles.emptyState}>
+    <h2 className={styles.emptyStateHeading}>No Workouts Found.</h2>
     <p>
-      No date is selected and no workouts are scheduled.
+      Configure your program by clicking the settings button.
+      {' '}
       <br />
-      Click the Settings button to configure your program.
+      Fill out the fields, and I&rsquo;ll do the rest.
     </p>
   </div>
 );
@@ -39,22 +40,29 @@ const Index = ({ selectedWorkout }:SelectedWorkout):JSX.Element => {
     <>
       {selectedWorkout && (
         <div className={styles.base}>
-          <h1>
-            Protocol //
-            {' '}
-            {selectedWorkout.date}
-            <button
-              type="button"
-              className={styles.button}
-              onClick={() => {
-                dispatch(completeWorkout(selectedWorkout.id));
-              }}
-            >
-              Details
-            </button>
-          </h1>
+          <div className={styles.header}>
+            <h1 className={styles.heading}>
+              protocol //
+              {' '}
+              {selectedWorkout.date.split('-').join('.')}
+            </h1>
+            {selectedWorkout.completed === true
+              && (<div className={styles.completed}>Completed</div>)}
+            {selectedWorkout.completed === false
+              && (
+                <button
+                  type="button"
+                  className={styles.button}
+                  onClick={() => {
+                    dispatch(completeWorkout(selectedWorkout.id));
+                  }}
+                >
+                  Complete
+                </button>
+              )}
+          </div>
           { selectedWorkout?.movements?.map((m: WorkoutMovement) => (
-            <div key={m.name}>
+            <div key={m.name} className={styles.movementTable}>
               <h2 className={styles.workoutHeading}>{m.name}</h2>
               <table className={styles.table}>
                 <tbody>
@@ -72,7 +80,7 @@ const Index = ({ selectedWorkout }:SelectedWorkout):JSX.Element => {
                       <td>{i + 1}</td>
                       <td>{m.reps[i]}</td>
                       <td>{set}</td>
-                      <td>{calculatePlatesNeeded(set, plates, bar)?.join(', ') || 'The Math is fucked'}</td>
+                      <td>{calculatePlatesNeeded(set, plates, bar)?.join(', ') || 0}</td>
                     </tr>
                   ))}
                 </tbody>
