@@ -11,7 +11,7 @@ import {
 import { ScheduleDay } from '../../types/madcow';
 
 const generateMadCowSchedule = (
-  startDate = format(new Date(), 'MM-dd-yyyy'),
+  startDate = new Date(),
   duration: number,
   daysSelected: (number | '')[],
 ):ScheduleDay[] => {
