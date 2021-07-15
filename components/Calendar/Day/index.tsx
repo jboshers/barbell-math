@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { format } from 'date-fns';
 import { MadCowContext } from '../../../contexts/madcow/Provider';
 import { showCurrentWorkout } from '../../../contexts/madcow/Reducer';
 import styles from './index.module.css';
@@ -15,8 +16,8 @@ const Index = ({
   workoutId,
 }:Day):JSX.Element => {
   const { dispatch }:any = useContext(MadCowContext);
-  const month = date.getUTCMonth() + 1;
-  const day = date.getUTCDate();
+  const month = format(date, 'MM');
+  const day = format(date, 'dd');
   const isWorkDay = !restDay;
   return (
     <div className={`${styles.base} ${restDay ? styles.restDay : ''}`}>

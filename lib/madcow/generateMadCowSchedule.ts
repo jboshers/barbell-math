@@ -11,7 +11,7 @@ import {
 import { ScheduleDay } from '../../types/madcow';
 
 const generateMadCowSchedule = (
-  startDate = new Date(),
+  startDate = format(new Date(), 'MM/dd/yyyy'),
   duration: number,
   daysSelected: (number | '')[],
 ):ScheduleDay[] => {
@@ -31,7 +31,7 @@ const generateMadCowSchedule = (
   let count = 0;
   return daysOfProgram.map((day) => {
     const isDateDuringProgram = isEqual(day, firstWorkoutDate) || isAfter(day, firstWorkoutDate);
-    const date = format(day, 'MM-dd-yyyy');
+    const date = format(day, 'MM/dd/yyyy');
     if (
       daysSelected.includes(day.getDay())
       && isDateDuringProgram

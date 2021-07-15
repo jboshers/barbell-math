@@ -46,7 +46,7 @@ const Index = ({ selectedWorkout }:SelectedWorkout):JSX.Element => {
             <h1 className={styles.heading}>
               protocol //
               {' '}
-              {selectedWorkout.date.split('-').join('.')}
+              {selectedWorkout.date.split('/').join('.')}
             </h1>
             {selectedWorkout.completed === true
               && (
