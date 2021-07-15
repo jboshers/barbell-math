@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { useContext } from 'react';
 import { MadCowContext } from '../../../contexts/madcow/Provider';
 import { completeWorkout } from '../../../contexts/madcow/Reducer';
@@ -30,6 +31,24 @@ const plates = ['45', '35', '25', '15', '10', '5', '2.5'];
 //     </div>
 //   </>
 // );
+function PrettyWeights({ set }: any):JSX.Element {
+  const weightRA = calculatePlatesNeeded(set, plates, bar);
+  // eslint-disable-next-line max-len
+  const map = weightRA?.reduce((acc, val) => acc.set(val, 1 + (acc.get(val) || 0)), new Map());
+  return (
+    <div className={styles.plates}>
+      {
+        map === undefined ? <span>∞</span>
+          : Array.from(map.entries()).map(([key, value]) => (
+            <div key={key}>
+              {key}
+              <sup>{value > 1 ? value : null}</sup>
+            </div>
+          ))
+      }
+    </div>
+  );
+}
 
 const Index = ({ selectedWorkout }:SelectedWorkout):JSX.Element => {
   const { dispatch }:any = useContext(MadCowContext);
@@ -44,9 +63,14 @@ const Index = ({ selectedWorkout }:SelectedWorkout):JSX.Element => {
         <div className={styles.base}>
           <div className={styles.header}>
             <h1 className={styles.heading}>
-              protocol //
+              {selectedWorkout.week}
+              .
+              {selectedWorkout.day}
+              {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
               {' '}
-              {selectedWorkout.date.split('/').join('.')}
+              //
+              {' '}
+              {format(new Date(selectedWorkout.date), 'MM.dd.yy')}
             </h1>
             {selectedWorkout.completed === true
               && (
@@ -88,7 +112,7 @@ const Index = ({ selectedWorkout }:SelectedWorkout):JSX.Element => {
                       <td>{i + 1}</td>
                       <td>{m.reps[i]}</td>
                       <td>{set}</td>
-                      <td>{calculatePlatesNeeded(set, plates, bar)?.join(', ') || 0}</td>
+                      <td><PrettyWeights set={set} /></td>
                     </tr>
                   ))}
                 </tbody>

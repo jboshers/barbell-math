@@ -62,8 +62,20 @@
   justify-content: space-around;
   gap: 0.5rem;
   color: var(--nord8);
+  white-space: nowrap;
   & .check {
     color: var(--nord14);
     font-size: 2rem;
+  }
+}
+
+.plates {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  & > * {
+    background: var(--nord3);
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
   }
 }

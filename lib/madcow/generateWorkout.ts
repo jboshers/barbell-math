@@ -24,6 +24,8 @@ const generateWorkout = (
       });
       return {
         id: day.workoutId,
+        week: count,
+        day: index + 1,
         date: day.date,
         completed: false,
         movements: curatedMovements,

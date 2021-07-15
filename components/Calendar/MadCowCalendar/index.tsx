@@ -5,11 +5,12 @@ import Workout from '../Workout';
 
 function determineId(completedWorkouts: any, currentWorkout = null) {
   let id;
+  const nextWorkout = completedWorkouts.findIndex((workout:any) => workout.completed === false);
   // This allows for any workout to be selected.
   if (currentWorkout !== null) {
     id = currentWorkout;
-  } else if (completedWorkouts.length > 0) {
-    id = completedWorkouts[completedWorkouts.length - 1].id;
+  } else if (nextWorkout > 0) {
+    id = nextWorkout;
   } else {
     id = 0;
   }
@@ -18,8 +19,8 @@ function determineId(completedWorkouts: any, currentWorkout = null) {
 
 const getNextWorkout = () => {
   const { state }:any = useContext(MadCowContext);
-  const { workouts, completedWorkouts, currentWorkout } = state;
-  const id = determineId(completedWorkouts, currentWorkout);
+  const { workouts, currentWorkout } = state;
+  const id = determineId(workouts, currentWorkout);
   return workouts?.find((workout:any) => workout.id === id) || null;
 };
 

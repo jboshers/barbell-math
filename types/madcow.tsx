@@ -19,6 +19,8 @@ export type Settings = {
 export interface Workout {
   id: number,
   date: string,
+  day: number,
+  week: number,
   completed: boolean,
   movements: {
     name: string,
