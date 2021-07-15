@@ -17,27 +17,27 @@ interface SelectedWorkout {
 const bar = 45;
 const plates = ['45', '35', '25', '15', '10', '5', '2.5'];
 
-const EmptyState = ():JSX.Element => (
-  <>
-    <div className={styles.emptyState}>
-      <h2 className={styles.emptyStateHeading}>No Workouts Found.</h2>
-      <p>
-        Configure your program by clicking the settings button.
-        {' '}
-        <br />
-        Fill out the fields, and I&rsquo;ll do the rest.
-      </p>
-    </div>
-  </>
-);
+// const EmptyState = ():JSX.Element => (
+//   <>
+//     <div className={styles.emptyState}>
+//       <h2 className={styles.emptyStateHeading}>No Workouts Found.</h2>
+//       <p>
+//         Configure your program by clicking the settings button.
+//         {' '}
+//         <br />
+//         Fill out the fields, and I&rsquo;ll do the rest.
+//       </p>
+//     </div>
+//   </>
+// );
 
 const Index = ({ selectedWorkout }:SelectedWorkout):JSX.Element => {
   const { dispatch }:any = useContext(MadCowContext);
-  if (selectedWorkout === null) {
-    return (
-      <EmptyState />
-    );
-  }
+  // if (selectedWorkout === null) {
+  //   return (
+  //     <EmptyState />
+  //   );
+  // }
   return (
     <>
       {selectedWorkout && (
