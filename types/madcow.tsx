@@ -1,3 +1,7 @@
+export interface Page {
+  title: string
+}
+
 export type Movement = {
   id: number,
   label: string,

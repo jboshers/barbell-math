@@ -6,10 +6,12 @@ type Props = {
  menu?: ReactNode
 }
 const Header = ({ title, menu }:Props):JSX.Element => (
-  <header className={styles.base}>
-    <h1>{title}</h1>
-    {menu}
-  </header>
+  <>
+    <header className={styles.base}>
+      <h1>{title}</h1>
+      {menu}
+    </header>
+  </>
 );
 
 export default Header;

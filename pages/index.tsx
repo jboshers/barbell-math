@@ -1,11 +1,16 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import Layout from '../components/Layout';
 import styles from '../styles/pages/home.module.css';
+import { Page } from '../types/madcow';
 
-const Index = ():any => (
+const Index = ({ title = 'Home' }:Page):any => (
   <Layout title="">
+    <NextSeo
+      title={title}
+    />
     <div className={styles.base}>
       <h1 className={styles.heading}>Home</h1>
       <p>Pick your poison.</p>

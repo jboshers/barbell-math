@@ -1,8 +1,10 @@
+import { NextSeo } from 'next-seo';
 import { useReducer } from 'react';
 import Layout from '../../components/Layout';
 import PlateDisplay from '../../components/PlateDisplay';
 import calculatePlatesNeeded from '../../lib/calculatePlatesNeeded';
 import styles from '../../styles/pages/calculator.module.css';
+import { Page } from '../../types/madcow';
 
 type State = {
   plates: number[],
@@ -75,7 +77,7 @@ const initialState = {
   weight: 0,
 };
 
-const Index = ():any => {
+const Index = ({ title = 'Plate Calculator' }:Page):any => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const platesToBeUsed:any = Object.keys(state.platesSelected).filter(
@@ -103,6 +105,9 @@ const Index = ():any => {
 
   return (
     <Layout title="Plate Calculator">
+      <NextSeo
+        title={title}
+      />
       <div className={styles.base}>
         <div className="flex--inline">
           <button type="button">LB</button>

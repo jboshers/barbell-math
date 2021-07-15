@@ -15,7 +15,7 @@ class MyDocument extends Document {
           <link rel="stylesheet" href="https://unpkg.com/bamboo.css@1.3.7/dist/dark.min.css" />
           <script src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.24.0,npm/prismjs@1.24.0/plugins/show-invisibles/prism-show-invisibles.min.js" />
         </Head>
-        <body>
+        <body className="antialiased">
           <Main />
           <NextScript />
         </body>
